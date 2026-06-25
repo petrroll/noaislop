@@ -2,92 +2,53 @@
 
 ## TL;DR
 
-If you use AI to draft messages, **edit them before you send them**. When you
-paste raw AI output into a chat, email, or pull request, you're offloading your
-thinking onto the reader. The recipient has to wade through verbose, generic
-filler to find (or guess) what you actually mean. That's disrespectful of their
-time.
+If you use AI to draft messages, **make sure you understand the context** and 
+**ideally** rewrite them **in your own voice**.
 
-## What Is AI Slop?
+When you send raw AI output into chat, design doc, or PR review, you're more 
+often than not offloading **your thinking** to the reader. That's disrespectful 
+of their time but **also** makes **you redundant**. If they were fine talking to 
+AI without your input, they'd talk to it themselves.
 
-"AI slop" is unedited AI-generated text sent as if it were your own
-communication. You can usually spot it by:
+## Why is it such a big deal?
 
-- Overly formal or generic phrasing ("I hope this message finds you well",
-  "Certainly!", "Great question!")
-- Bullet points and headers for a two-sentence answer
-- Restating the question back before answering it
-- Hedging everything with "it depends" and then not committing to anything
-- Conspicuous absence of personality, opinion, or actual thought
+Current AI models are amazing. They exhibit superhuman knowledge on certain
+problems and in good hands they're an immense efficiency multiplier. They should
+definitely be leveraged.
 
-## Why It's a Problem
+But they have real flaws. Post-training makes them sycophantic — they're bad at
+saying "no" or "I don't know". They [think too locally and
+overengineer](https://lucumr.pocoo.org/2026/6/23/the-coming-loop/). Without
+enough context, they assume the most probable scenario and present it as
+certainty.
 
-Compare these two code review comments:
+So if the output needs to be correct, their conclusions **must be** carefully
+validated. The best way to ensure that is to rewrite it in your own voice.
 
-```text
-AI slop:
+This also lets you add your own expertise — or at least demonstrate full
+understanding. After all, if all you do is paste LLM output, you're replaceable
+by an LLM agent the recipient could run themselves.
 
-Thank you for your contribution! This is a great start. I have a few
-suggestions that might help improve this implementation.
 
-It looks like there might be a potential issue with the error handling
-in this section. Specifically, the catch block on line 42 could
-potentially swallow errors silently, which might make debugging more
-challenging in production environments. You might want to consider
-logging the error or re-throwing it.
+## It Also Erodes Trust
 
-Additionally, I'd suggest considering whether the variable naming
-could be made slightly more descriptive to enhance readability and
-maintainability for future developers who might work on this codebase.
+When someone realizes you're pasting AI output, they start wondering: did you
+even read my message? Do you actually stand behind what "you" wrote? Do you
+take responsibility for it? Or did you just tab-complete your way through the
+conversation?
 
-Overall, great work though! Let me know if you have any questions.
-```
+Unedited AI slop signals: "I value my time more than yours." You saved 2
+minutes; the reader now spends 5 parsing fluff — if there's even a real point
+to find.
 
-```text
-A human who thought about it:
-
-The catch on L42 swallows errors silently — add a log or rethrow.
-Also: rename `d` to `deadline`, it's unclear without context.
-```
-
-The second version took 10 seconds to read instead of 60. It says the same
-thing. It's *more* useful because it's specific and direct.
-
-## Why It Matters
-
-When you send AI slop, you're saying: "I value my own time more than yours."
-You saved 2 minutes by not editing the AI output. The recipient now spends 5
-minutes parsing fluff to find your actual point — if there even is one.
-
-Worse, AI slop erodes trust. Once someone realizes you're sending
-auto-generated text, they start wondering: did you even read my message? Do you
-actually agree with what "you" wrote? Is there a real thought behind this, or
-did you just tab-complete your way through the conversation?
-
-## Using AI Well in Communication
-
-AI is a fine drafting tool. The problem isn't using it — it's using it *lazily*.
-Here's the bar:
+## The Bar
 
 - **Read what it generated.** Does it actually say what you mean?
 - **Cut the filler.** Remove every sentence that doesn't add information.
-- **Add your own thinking.** The value of your message is your judgment,
-  context, and decisions — things the AI doesn't have.
-- **Make it sound like you.** If your message reads like a corporate press
-  release but you normally write casual one-liners, something went wrong.
+- **Add your own thinking.** Your judgment, context, and decisions are what
+  the AI doesn't have — and what makes your message worth sending.
 
-If after editing the AI draft you've rewritten most of it — great, that's the
-point. The AI helped you think, and you communicated the result. If you changed
-nothing, you probably didn't think about it enough.
 
-## The Real Issue
+## Attribution
 
-The underlying problem with AI slop is the same as "just saying hello" — it
-shifts cost from sender to receiver. Except it's worse: a "hello" wastes
-seconds. A wall of AI-generated text wastes minutes and *actively obscures
-meaning* behind a veneer of helpfulness.
-
-Respect your recipient. Think about what you want to say. Say it in your own
-words — or at least in words you've chosen and stand behind.
-
-<sup>Inspired by [nohello.net](https://nohello.net). Source available on [GitHub](https://github.com/petrroll/noai).</sup>
+<sup>Inspired by [nohello.net](https://nohello.net) and policies of the lovely people at [earendil](https://earendil.com/)/[pi](https://pi.dev/). Source available on [GitHub](https://github.com/petrroll/noai).</sup>
