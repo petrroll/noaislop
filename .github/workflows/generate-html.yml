@@ -1,0 +1,30 @@
+name: generate-html
+on:
+  push:
+    paths:
+      - "index.md"
+    branches:
+      - main
+jobs:
+  generate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run pandoc
+        uses: docker://pandoc/latex:2.9
+        with:
+          args: >-
+            pandoc --standalone --metadata pagetitle="noaislop"
+            --css "assets/css/pandoc.css" --output=index.html index.md
+      - name: Commit
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "[BOT] Generate HTML from Markdown" || echo "No changes to commit"
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
